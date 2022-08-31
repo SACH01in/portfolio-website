@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- its link for fonawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- its link for fonawesome -->
+
+    <title>Mouse over effect</title>
+
+    <!-- styling -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Signika Negative', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(TO RIGHT BOTTOM, #000000, #A55C1B);
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100vh;
+        }
+
+        .container .nav_bar {
+            height: 6vh;
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .container .nav_bar .nav-left {
+            width: 20vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container .nav_bar .nav-left h1 {
+            text-transform: capitalize;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.75em;
+            cursor: pointer;
+        }
+
+        .container .nav_bar .nav-mid {
+            width: 60vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container .nav_bar .nav-mid a {
+            text-decoration: none;
+            cursor: pointer;
+            color: #fff;
+            padding: 0 5px;
+            margin: 0 25px;
+            text-transform: capitalize;
+            font-weight: 600;
+            border-radius: 30px;
+            position: relative;
+            transition: 0.5s;
+        }
+        .container .nav_bar .nav-mid a:hover{
+            color: #ffa632;
+        }
+        .container .nav_bar .nav-mid a::before{
+            content: '';
+            position: absolute;
+            background: #ffa632;
+            height: 4px;
+            border-radius: 20px;
+            bottom: -5px;
+            width: 0;
+            left: 0;
+            transition: 0.5s;
+        }
+        .container .nav_bar .nav-mid a:hover::before{
+            width: 100%;
+        }
+
+        .container .nav_bar .nav-right {
+            width: 20vw;
+            padding: 0 20px 0 0;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+        .container .nav_bar .nav-right .form{
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            overflow: hidden;
+            background: #fff;
+            border: 2px solid#493b3b;
+            transition: 0.5s;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container .nav_bar .nav-right .active{
+            width: 180px;
+        }
+        
+        .container .nav_bar .nav-right .active input{
+            visibility: visible;
+        }
+        
+        .container .nav_bar .nav-right .form input{
+            top: 0;
+            left: 15px;
+            transition: 0.5s;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border: none;
+            font-size: 0.75em;
+            color: #000;
+            outline: none;
+            padding: 10px 0;
+        }
+        .container .nav_bar .nav-right .form span{
+            position: absolute;
+            top: 7px;
+            right: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            color: rgb(107, 107, 107);
+            font-size: 10px;
+        }
+        .container .nav_bar .nav-right .form .icon{
+            background: #fff;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: 0;
+            width: 30px;
+            height: 30px;
+        }
+        .container .nav_bar .nav-right .form .icon a{
+            text-decoration: none;
+            cursor: pointer;
+            color: #A55C1B;
+        }
+
+        /* syle for matter */
+        
+        .matter{
+            width: 100vw;
+            height: 94vh;
+            /* background: rgba(9, 143, 132, 0.973); */
+            display: flex;
+        }
+        .matter .left-side{
+            width: 60%;
+            height: 100%;
+            /* background: rgb(255, 185, 255); */
+            margin: 60px;
+            padding: 40px;
+        }
+        .matter .left-side h6{
+            font-size: 4em;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-transform: capitalize;
+            color: #fff;
+        }
+        .matter .left-side h2{
+            font-size: 3em;
+            font-weight: 900;
+            margin-top: 15px;
+            text-transform: capitalize;
+            color: #fff;
+        }
+        .matter .left-side h2 span{
+            color: #ffa632;
+        }
+        .matter .left-side p{
+            font-size: 1.15em;
+            line-height: 22px;
+            font-weight: 200;
+            margin: 20px 0;
+            color: #fff;
+        }
+        .matter .left-side .btn{
+            margin: 10px 20px;
+            padding: 5px 10px;
+            background: #ffa632;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #fff;
+            transition: 1s;
+            font-weight: 800;
+        }
+        .matter .left-side .btn:hover{
+            color: #000;
+            background:#fff;
+        }
+
+        .matter .right_side{
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .matter .right_side img{
+            position: relative;
+            width: auto;
+            height: 500px;
+            margin-top: -40px;
+            margin-left: 0;
+        }
+        
+
+    </style>
+
+    <!-- styling -->
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav_bar">
+            <div class="nav-left">
+                <h1>Sachin Singh</h1>
+            </div>
+            <div class="nav-mid">
+                <a href="#">Home</a>
+                <a href="#">About me</a>
+                <a href="#">portfolio</a>
+                <a href="#">my works</a>
+                <a href="#">Contact me</a>
+            </div>
+            <div class="nav-right">
+                <div class="form">
+                    <div class="input">
+                        <input type="text" placeholder="Type here For Search" id="mysearch">
+                    </div>
+                    <span class="eraser" id="eraser" onclick = "document.getElementById('mysearch').value = ''"><i class="fa-solid fa-x"></i></span>
+                    <div class="icon">
+                        <a href="#" class="btn"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="matter">
+            <div class="left-side">
+                <h6>hello</h6>
+                <h2>i am a <span class="auto_typing"></span></h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi cum, facilis ut necessitatibus quos
+                    ipsum quisquam eligendi pariatur tenetur corrupti nihil incidunt officiis officia explicabo dolore
+                    aliquid aliquam et odio!Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi cum, facilis
+                    ut necessitatibus quos
+                    ipsum quisquam eligendi!</p>
+                <a href="#" class="btn">About me</a>
+                <a href="#" class="btn">Contact me</a>
+            </div>
+            <div class="right_side">
+                <img src="person1.png" alt="#">
+            </div>
+        </div>
+    </div>
+
+    
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>    
+
+    // scriptiing for form 
+
+    let form = document.querySelector('.form');
+    let icon = document.querySelector('.icon');
+
+    icon.onclick = function() {
+        form.classList.toggle('active');
+    }
+    
+    // scriptiing for form 
+
+    // for auto typing effect
+    
+    var typed = new Typed(".auto_typing", {
+        strings: ["Programmer","Web Designer","Graphic Designer"],
+        typeSpeed: 70,
+        backSpeed: 70,
+        loop: true
+    })
+    
+    // for auto typing effect
+
+</script>
+
+
+</body>
+
+</html>
